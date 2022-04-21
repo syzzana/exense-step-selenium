@@ -1,7 +1,9 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+import java.util.concurrent.TimeUnit;
 
 public class TabsMenuPage extends AbstractPage {
 
@@ -10,7 +12,8 @@ public class TabsMenuPage extends AbstractPage {
     }
 
     public void goThroughTab(String tab) {
-        waitForElementWithTextVisibility(tab, 10);
+        waitForElementToBeClickable(By.xpath("//*[contains(text(),'" + tab + "')]"), 10);
         findElementByText(tab).click();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 }

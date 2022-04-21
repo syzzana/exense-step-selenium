@@ -37,8 +37,5 @@ abstract class AbstractPage {
        return driver.findElement(By.xpath("//*[contains(text(),'" + text + "')]"));
     }
 
-    public void waitForElementWithTextVisibility(String text, int durationInSec) {
-        waitForElementVisibility(findElementByText(text), durationInSec);
-    }
 
 }

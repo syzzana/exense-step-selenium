@@ -13,7 +13,7 @@ public class LoginPage extends  AbstractPage{
     @FindBy(css="[name='password']")
     private WebElement password;
 
-    @FindBy(xpath = "//*[contains(text(),'Login']")
+    @FindBy(xpath = "//*[contains(text(),'Login')]")
     private WebElement login;
 
 
@@ -36,15 +36,17 @@ public class LoginPage extends  AbstractPage{
 
     public void fillEmailOrUsername(final String emailAddress) {
         waitForElementVisibility(username,5);
+        username.clear();
         username.sendKeys(emailAddress);
     }
 
     public void fillPassword(final String pass) {
         waitForElementVisibility(password,5);
+        password.clear();
         password.sendKeys(pass);
     }
 
-    public void login(){
+    public void login() {
         fillEmailOrUsername(USERNAME);
         fillPassword(PASSWORD);
         submit();
